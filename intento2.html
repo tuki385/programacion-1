@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Currículum</title>
+  <style>
+    :root {
+      --accent: #4678e4; /* azul */
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #87CEFA; /* azul celeste claro */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); 
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased; 
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ====== Layout ====== */
+    .container { max-width: 960px; margin: 24px auto; padding: 16px; }
+
+    .resume {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,.06);
+    }
+
+    aside {
+      background: #f8fafc; border-right: 1px solid #e5e7eb; padding: 24px;
+    }
+
+    main {
+      padding: 24px 24px 32px 24px;
+    }
+
+    header {
+      border-bottom: 2px solid #e5e7eb; padding-bottom: 16px; margin-bottom: 20px;
+    }
+
+    h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+    .role { color: var(--accent); font-weight: 600; }
+    .summary { color: var(--muted); margin-top: 10px; }
+
+    h2 {
+      font-size: 16px; text-transform: uppercase; letter-spacing: .08em; color: #374151;
+      margin: 26px 0 12px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px;
+    }
+
+    .section + .section { margin-top: 18px; }
+
+    /* ====== Sidebar ====== */
+    .avatar {
+      width: 120px; height: 120px; border-radius: 100%; object-fit: cover; display: block;
+      border: 3px solid #e5e7eb; margin: 6px 0 16px;
+    }
+
+    .contact { font-size: 14px; line-height: 1.6; }
+    .contact a { color: var(--text); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    .pill {
+      display: inline-block; padding: 6px 10px; border: 1px solid #e5e7eb; border-radius: 999px; margin: 4px 6px 0 0; font-size: 12px;
+      background: #fff;
+    }
+
+    /* ====== Lists ====== */
+    .item { margin-bottom: 14px; }
+    .item-title { font-weight: 700; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .bullets { margin: 6px 0 0 18px; }
+    .bullets li { margin-bottom: 6px; }
+
+    /* ====== Tags (habilidades) ====== */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #eef2ff; color: #3730a3; }
+
+    /* ====== Footer ====== */
+    footer { color: var(--muted); font-size: 12px; margin-top: 18px; }
+
+    /* ====== Responsivo ====== */
+    @media (max-width: 800px) {
+      .resume { grid-template-columns: 1fr; }
+      aside { border-right: none; border-bottom: 1px solid #e5e7eb; }
+    }
+
+    /* ====== Impresión A4 ====== */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body { background: #fff; }
+      .container { margin: 0; padding: 0; }
+      .resume { box-shadow: none; border: none; }
+      a { color: inherit; text-decoration: none; }
+      .pill { border-color: #ddd; }
+    }
+
+    /* ====== Player Card ====== */
+    .music-card{
+      display:grid; place-items:center;
+      width:100%; max-width:560px; min-height:150px;
+      margin:1.5rem auto; padding:1.2rem;
+      border-radius:16px; cursor:pointer; user-select:none;
+      box-shadow:0 8px 20px rgba(0,0,0,.1);
+      background:linear-gradient(135deg,#e0f2fe,#fce7f3);
+      font-family:inherit;
+      text-align:center;
+    }
+    .music-card .title{font-size:1.1rem; margin:.25rem 0; color:#111827}
+    .music-card .hint{font-size:.9rem; color:#374151}
+    .music-card .status{margin-top:.5rem; font-weight:600; color:#0f172a}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="resume" role="document" aria-label="Currículum de Nombre Apellido">
+      <!-- ====== Sidebar ====== -->
+      <aside>
+        <img src="https://i.pinimg.com/736x/24/dc/a2/24dca2570a4405281f39a2a3df8cee71.jpg" alt="Foto de perfil" class="avatar" />
+        <h2>Contacto</h2>
+        <div class="contact">
+          <div>📍 Bucaramanga, Colombia</div>
+          <div>✉️ <a href="mailto:tucorreo@ejemplo.com">cviche252@gmail.com</a></div>
+          <div>📱 +57 317602542</div>
+        </div>
+
+        <h2>Habilidades</h2>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Trabajo en equipo</span>
+        </div>
+
+        <h2>Idiomas</h2>
+        <div class="contact">
+          <div>Español — Nativo</div>
+          <div>Inglés — B1</div>
+        </div>
+      </aside>
+
+      <!-- ====== Main ====== -->
+      <main>
+        <header>
+          <h1>Yann Bermudez</h1>
+          <div class="role">Estudiante Udes</div>
+          <p class="sumary">Estudiante de ingenieria de software de cuarto semestre </p>
+          <p class="sumary">Me gusta el lenguaje de programación python y deseo aprender un poco más sobre javaScript, tengo 19 años, si la oportunidad se da para ayudar a otros, lo hago. Dentro de mis gustos al deporte entran: el futbol, baloncesto, voleibol y la natacion.</p>
+          <p class="sumary">En cuanto a videojuegos, me gustan: league of legends, valorant, CSGO. Y si son mis gustos personales: tengo cierta debilidad por las chicas de veterinaria y las goticas, mi color favorito es el negro y me gusta un poco el anime</p>
+          <p class="sumaty">Respecto a la carrera deseo especializarme en la area de base de datos mejorar en python, javaScript y C+, poder trabajar en el exterior como Alemania o Estados Unidos</p>
+        </header>
+
+        <section class="section" aria-labelledby="exp">
+          <div class="item"><ul class="bullets"></ul></div>
+        </section>
+
+        <section class="section" aria-labelledby="edu">
+          <h2 id="edu">Educación</h2>
+          <div class="item">
+            <div class="item-title">Universidad Udes</div>
+            <div class="meta">2024</div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="proj">
+          <h2 id="proj">Objetivos</h2>
+          <div class="item">
+            <div class="item-title">programacion</div>
+            <ul class="bullets">
+              <li>Especializacion en javaScript, python, CCS</li>
+              <li>Aprender a usar bases de datos</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="proj">
+          <h2 id="proj">gustos musicales</h2>
+          <div class="item">
+            <div class="item-title">musica</div>
+            <ul class="bullets">
+              <li>https://youtu.be/u9n7Cw-4_HQ?list=RDu9n7Cw-4_HQ</li>
+              <li>https://youtu.be/dRG40b2UI38?list=RDdRG40b2UI38</li>
+              <li>https://youtu.be/ikm1v7SGgm4?list=RDikm1v7SGgm4</li>
+              <li>https://youtu.be/pyi0ZfuIIvo?list=RDpyi0ZfuIIvo</li>
+               <li>https://youtu.be/a_1tA0bpDQs?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
+              <li>https://youtu.be/ShQdOf2zAzc?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
+              <li>https://youtu.be/UgmY2sB71Hc?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
+              <li>https://youtu.be/oNAx3WJiEsY</li>
+              <li>https://youtu.be/x59_gourSdQ?list=RDx59_gourSdQ</li>
+              <li>https://youtu.be/ktpr-HxGJ0E?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
+            </ul>
+          </div>
+  <section class="section">
+  <h2>Reproductor MP3</h2>
+
+  <!-- Tarjeta clickeable -->
+  <div id="musicCard" class="music-card" role="button" tabindex="0">
+    <div style="font-size:2rem;">🎵</div>
+    <h3 class="title">Mi Canción MP3</h3>
+    <p class="hint">Haz click para reproducir o pausar</p>
+    <p id="status" class="status">▶️ Lista para reproducir</p>
+  </div>
+
+  <!-- Audio oculto -->
+  <audio id="audioPlayer">
+    <source src="C:\Users\ycber\Downloads\Helena.mp3.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+</section>
+
+<script>
+  const card   = document.getElementById('musicCard');
+  const audio  = document.getElementById('audioPlayer');
+  const status = document.getElementById('status');
+
+  function togglePlay() {
+    if (audio.paused) {
+      audio.play();
+      status.textContent = "⏸️ Reproduciendo (haz click para pausar)";
+    } else {
+      audio.pause();
+      status.textContent = "▶️ Lista para reproducir";
+    }
+  }
+
+  card.addEventListener('click', togglePlay);
+
+  card.addEventListener('keydown', (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      togglePlay();
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    status.textContent = "▶️ Lista para reproducir";
+  });
+</script>
+
+
+</body>
+</html>
