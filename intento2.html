@@ -179,69 +179,104 @@
           </div>
         </section>
 
-        <section class="section" aria-labelledby="proj">
-          <h2 id="proj">gustos musicales</h2>
-          <div class="item">
-            <div class="item-title">musica</div>
-            <ul class="bullets">
-              <li>https://youtu.be/u9n7Cw-4_HQ?list=RDu9n7Cw-4_HQ</li>
-              <li>https://youtu.be/dRG40b2UI38?list=RDdRG40b2UI38</li>
-              <li>https://youtu.be/ikm1v7SGgm4?list=RDikm1v7SGgm4</li>
-              <li>https://youtu.be/pyi0ZfuIIvo?list=RDpyi0ZfuIIvo</li>
-               <li>https://youtu.be/a_1tA0bpDQs?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
-              <li>https://youtu.be/ShQdOf2zAzc?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
-              <li>https://youtu.be/UgmY2sB71Hc?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
-              <li>https://youtu.be/oNAx3WJiEsY</li>
-              <li>https://youtu.be/x59_gourSdQ?list=RDx59_gourSdQ</li>
-              <li>https://youtu.be/ktpr-HxGJ0E?list=PLhkQufqK5FnhqWLd6IymVNsWoMunFN4Y1</li>
-            </ul>
-          </div>
-  <section class="section">
-  <h2>Reproductor MP3</h2>
+<section class="section">
+  <h2>Música Favorita</h2>
 
-  <!-- Tarjeta clickeable -->
-  <div id="musicCard" class="music-card" role="button" tabindex="0">
-    <div style="font-size:2rem;">🎵</div>
-    <h3 class="title">Mi Canción MP3</h3>
-    <p class="hint">Haz click para reproducir o pausar</p>
-    <p id="status" class="status">▶️ Lista para reproducir</p>
+  <div class="music-grid">
+    <div class="music-card" data-audio="./Helena.mp3.mp3">
+      <div class="icon">🎵</div>
+      <h3>Helena</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./Swedish House Mafia and The Weeknd.mp3">
+      <div class="icon">🎵</div>
+      <h3>Swedish</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./Bite My Hip - Bauhaus.mp3">
+      <div class="icon">🎵</div>
+      <h3>Bite My Hip</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./Motionless In White - Eternally Yours  Sub Español - Lost Soul.mp3">
+      <div class="icon">🎵</div>
+      <h3>Motionless in White</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./My Chemical Romance - I Don't Love You [Official Music Video] [HD] - My Chemical Romance.mp3">
+      <div class="icon">🎵</div>
+      <h3>My Chemical Romance</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./You Know What They Do to Guys Like Us in Prison - My Chemical Romance.mp3">
+      <div class="icon">🎵</div>
+      <h3>You Know What They Do to Guys Like Us in Prison</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./I'm Not Okay (I Promise) - My Chemical Romance.mp3">
+      <div class="icon">🎵</div>
+      <h3>I'm Not Okay (I Promise)</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./PONTE LOKITA - Katteyes x Kidd Voodoo (Video Oficial) - Katteyes.mp3">
+      <div class="icon">🎵</div>
+      <h3>PONTE LOKITA</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./Nessa Barrett - DIRTY LITTLE SECRET ☆ (official music video) - Nessa Barrett.mp3">
+      <div class="icon">🎵</div>
+      <h3>DIRTY LITTLE SECRET ☆</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
+
+    <div class="music-card" data-audio="./Thank You for the Venom - My Chemical Romance.mp3">
+      <div class="icon">🎵</div>
+      <h3>Thank You for the Venom</h3>
+      <p class="status">▶️ Lista para reproducir</p>
+    </div>
   </div>
-
-  <!-- Audio oculto -->
-  <audio id="audioPlayer">
-    <source src="C:\Users\ycber\Downloads\Helena.mp3.mp3" type="audio/mpeg">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
 </section>
 
+<!-- JS -->
 <script>
-  const card   = document.getElementById('musicCard');
-  const audio  = document.getElementById('audioPlayer');
-  const status = document.getElementById('status');
+  let currentAudio = null;
 
-  function togglePlay() {
-    if (audio.paused) {
-      audio.play();
-      status.textContent = "⏸️ Reproduciendo (haz click para pausar)";
-    } else {
-      audio.pause();
+  document.querySelectorAll('.music-card').forEach(card => {
+    const status = card.querySelector('.status');
+    const audio = new Audio(card.getAttribute('data-audio'));
+
+    card.addEventListener('click', () => {
+      // Pausar la canción actual si hay otra sonando
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        document.querySelectorAll('.status').forEach(s => s.textContent = "▶️ Lista para reproducir");
+      }
+
+      if (audio.paused) {
+        audio.play();
+        status.textContent = "⏸️ Reproduciendo (click para pausar)";
+        currentAudio = audio;
+      } else {
+        audio.pause();
+        status.textContent = "▶️ Lista para reproducir";
+      }
+    });
+
+    audio.addEventListener('ended', () => {
       status.textContent = "▶️ Lista para reproducir";
-    }
-  }
-
-  card.addEventListener('click', togglePlay);
-
-  card.addEventListener('keydown', (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      togglePlay();
-    }
-  });
-
-  audio.addEventListener('ended', () => {
-    status.textContent = "▶️ Lista para reproducir";
+    });
   });
 </script>
+ 
 
 
 </body>
